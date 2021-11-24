@@ -1,68 +1,64 @@
-const titleofBook = document.getElementById('titleInput');
-const authorofBook = document.getElementById('authorInput');
-const pagesofBook = document.getElementById('pageCount');
-const checkBox = document.getElementById('read');
+const title = document.getElementById('titleInput');
+const author = document.getElementById('authorInput');
+const pages = document.getElementById('pageCount');
+const isRead = document.getElementById('read');
 const submitButton = document.getElementById('submitButton');
 const library = document.querySelector('.addedBooks');
+const newBookButton = document.getElementById('addNewBook');
+const modal = document.querySelector('#form');
+
+newBookButton.onclick=()=>{
+    modal.style.display = "block";
+    modal.style.marginLeft = "20px";
+}
 
 submitButton.addEventListener('click',()=>{
-    addBooktoLibrary()
-    titleofBook.value=''
-    authorofBook.value=''
-    pagesofBook.value=''
-    checkBox.checked=false
+    if(title.value !== ''&& author.value !== ''&& pages.value>0){
+        bookReader();
+        emptyFields();
+    } 
 })
 
 let myLibrary = [];
 
 class Book {
-    constructor(title, author, pageCount, read) {
-        this.title = title;
-        this.author = author;
-        this.pageCount = pageCount;
-        this.read = read;
+    constructor(title, author, pages, isRead){
+        this.title = title.value
+        this.author = author.value
+        this.pages = pages.value
+        this.isRead = isRead.checked
     }
 }
 
-function addBooktoLibrary(){
-    let title = titleofBook.value;
-    let author = authorofBook.value;
-    let pages = pagesofBook.value;
-    let read = false
-    if(checkBox.checked) read = true;
+const addBook = (newBook)=>{
+    if (!isInLibrary(newBook)) myLibrary.push(newBook)
+} 
 
-    if(title != '' && author !='' && pages!='') myLibrary.push(new Book(title, author, pages,read));
+
+const removeBook=(title)=> {
+    myLibrary = myLibrary.filter((book) => book.title !== title)
 }
-// function displayBooks(){
-// myLibrary.forEach((book)=>{
-//     let books = document.createElement('div')
-//     let bookTitle = document.createElement('h3');
-//     bookTitle.innerHTML = `"${book.title}"`;
-//     let authorName = document.createElement('h3');
-//     authorName.innerHTML = `${book.author}`;
-//     let pageCounter = document.createElement('h3');
-//     pageCounter.innerHTML = `${book.pages} pages`;
-//     let checker = document.createElement('button');
-//     if(book.read) checker.innerHTML = 'Read';
-//     else checker.innerHTML = 'Not Read'
-//     books.appendChild(bookTitle);
-//     books.appendChild(authorName);
-//     books.appendChild(pageCounter);
-//     books.appendChild(checker);
-// })
-// }
-// static class Library{
-//     static displayBooks(){
-//         const library = [];
-//     }
 
-//     static addBooktoLibrary(book){
-//         const newBook = document.querySelector('.addedBooks');;
+const getBook = (title)=> {
+    return myLibrary.find((book) => book.title === title)
+}
 
-//         const 
-//     }
-// }
+const isInLibrary = (newBook) => {
+    return myLibrary.some((book) => book.title === newBook.title)
+}
 
-//document.addEventListener('DOMContentLoaded', Library.displayBooks);
+const bookReader=()=>{
+    newBook = new Book(title, author, pages, isRead);
+    console.log(newBook)
+    addBook(newBook);
+}
 
+const emptyFields = () =>{
+    title.value=''
+    author.value=''
+    pages.value=''
+    isRead.checked=false;
+    modal.style.display = 'none';
+    document.querySelector('.main').style.backgroundColor = '';
+}
 

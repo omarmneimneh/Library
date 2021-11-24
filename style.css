@@ -47,24 +47,39 @@ body{
     margin: 20px auto;
     display: table;
     width: 100%;
-    background-color:tomato;
+    background-color:white;
     height: 200px;
 }
 
 .innerHero{
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
-    width: 65%;
+    width: 100%;
     height: 50%;
     margin: 50px 50px;
 }
 
-.form{
+#form{
     color: white;
     line-height: 40px;
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
+    display: none;
+
+}
+
+#addNewBook{
+    padding: 10px;
+    font-weight: 600;
+    background-color: #99F299;
+    outline: none;
+}
+
+.addNewBook:hover{
+    transform: scale(1.1);
+    background-color: #3DF13D;
+    font-weight: 600;
 }
 
 #submitButton{
@@ -85,6 +100,18 @@ body{
     height: 400px;
     background-color:#E8B1CA;
     border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.addedBooks{
+    width: 65%;
+    height: 65%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, .1fr)
 }
 
 .footer{
@@ -104,4 +131,8 @@ body{
 footer > p{
     font-size: 18px;
     font-family: 'Roboto Mono', monospace
+}
+
+sup{
+    color: red;
 }

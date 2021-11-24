@@ -20,11 +20,12 @@
 
         <div class="hero">
             <div class="innerHero">
-                <div class="form">
+                <button id="addNewBook">NEW BOOK</button>
+                <div id="form">
                     <form>
-                        <label for="title">Title of the book:  </label><input type="text" name="Title" id="titleInput"><br>
-                        <label for="title">Author of the book:  </label><input type="text" name="Author" id="authorInput"><br>
-                        <label for="title">Number of pages:  </label><input type="number" name="pageCount" id="pageCount" min="0"><br>
+                        <input type="text" name="Title" id="titleInput" placeholder="Title" required><sup> *</sup><br>
+                        <input type="text" name="Author" placeholder= "Author" id="authorInput" required><sup> *</sup><br>
+                        <input type="number" name="pageCount" id="pageCount" placeholder="Page Count" min="0" required><sup> *</sup><br>
                         <label for="title">Read? </label><input type="checkbox" name="read" id="read"><br>
                         <button type="button" id="submitButton">Submit</button>
                     </form>
@@ -43,6 +44,8 @@
                 <p>Copyright © 2021 Omar Mneimneh</p> 
             </footer>
         </div>
+
     </div>
 </body>
 </html>
+
