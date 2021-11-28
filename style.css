@@ -45,7 +45,6 @@ body{
 
 .hero{
     margin: 20px auto;
-    display: table;
     width: 100%;
     background-color:white;
     height: 200px;
@@ -57,11 +56,9 @@ body{
     align-items: center;
     width: 100%;
     height: 50%;
-    margin: 50px 50px;
-}
+    margin: 200px 0px; }
 
 #form{
-    color: white;
     line-height: 40px;
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
@@ -94,24 +91,23 @@ body{
     transform: scale(1.25);
 }
 
-.books{
+.library{
     margin: 0 auto;
     width: 100%;
-    height: 400px;
-    background-color:#E8B1CA;
+    height: auto;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
 }
 
-.addedBooks{
+.books{
     width: 65%;
-    height: 65%;
-    background-color: black;
+    height: auto;
+    background-color: white;
     display: grid;
-    grid-template-columns: repeat(4, .1fr)
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 15px;
 }
 
 .footer{
@@ -130,9 +126,30 @@ body{
 
 footer > p{
     font-size: 18px;
-    font-family: 'Roboto Mono', monospace
+    font-family: 'Roboto Mono', monospace;
 }
+
 
 sup{
     color: red;
+}
+
+.book{
+    height: 200px;
+    width: 225px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#info{
+    margin: 5px auto;
+    font-size: larger;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
